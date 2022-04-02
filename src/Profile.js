@@ -18,31 +18,29 @@ function Profile() {
 
   // fuction for delete data from table
   const deleteUser = (id) => {
-    
-        //prompt message for delete data
-        swal({
-          title: "Are you sure?",
-          text: "Once deleted, you will not be able to recover this imaginary file!",
-          icon: "warning",
-          buttons: true,
-          dangerMode: true,
-        }).then((willDelete) => {
-          if (willDelete) {
-            axios
-      .delete(`https://6242aa41b6734894c1540621.mockapi.io/employee/${id}`)
-      .then(() => {
-      });
-      getData();
-            swal(" Your file has been deleted!", {
-              icon: "success",
-            });
-          } else {
-            swal("Your file is safe!");
-          }
-       
-      });
+    //prompt message for delete data
+    swal({
+      title: "Are you sure?",
+      text: "Once deleted, you will not be able to recover this imaginary file!",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    }).then((willDelete) => {
+      if (willDelete) {
+        axios
+          .delete(`https://6242aa41b6734894c1540621.mockapi.io/employee/${id}`)
+          .then(() => {
+            getData();
+          });
+
+        swal(" Your file has been deleted!", {
+          icon: "success",
+        });
+      } else {
+        swal("Your file is safe!");
+      }
+    });
   };
-  
 
   const getData = () => {
     axios

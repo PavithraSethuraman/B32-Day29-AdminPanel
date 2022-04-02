@@ -26,8 +26,10 @@ function Users() {
       if (willDelete) {
         axios
           .delete(`https://6242aa41b6734894c1540621.mockapi.io/employee/${id}`)
-          .then(() => {});
-        getData();
+          .then(() => {
+            getData();
+          });
+
         swal(" Your file has been deleted!", {
           icon: "success",
         });
@@ -36,7 +38,6 @@ function Users() {
       }
     });
   };
- 
 
   const getData = () => {
     axios
