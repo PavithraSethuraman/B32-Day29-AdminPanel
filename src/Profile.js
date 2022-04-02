@@ -18,9 +18,7 @@ function Profile() {
 
   // fuction for delete data from table
   const deleteUser = (id) => {
-    axios
-      .delete(`https://6242aa41b6734894c1540621.mockapi.io/employee/${id}`)
-      .then(() => {
+    
         //prompt message for delete data
         swal({
           title: "Are you sure?",
@@ -30,17 +28,21 @@ function Profile() {
           dangerMode: true,
         }).then((willDelete) => {
           if (willDelete) {
+            axios
+      .delete(`https://6242aa41b6734894c1540621.mockapi.io/employee/${id}`)
+      .then(() => {
+      });
+      getData();
             swal(" Your file has been deleted!", {
               icon: "success",
             });
           } else {
             swal("Your file is safe!");
           }
-        });
-        getData();
+       
       });
   };
-  deleteUser();
+  
 
   const getData = () => {
     axios
